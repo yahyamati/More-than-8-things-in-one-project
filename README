@@ -1,1 +1,2 @@
-1-Create a server BUN ("JavaScript runtime") with "bun init" and run it with "bun run index.ts" and make it runing with "bun --watch index.ts"
+1-Create a BUN project ("JavaScript runtime") with "bun init" and run it with "bun run index.ts" and make it runing with "bun --watch index.ts"
+2-install in Bun the Hono freamwork and create a server 
