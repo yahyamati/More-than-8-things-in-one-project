@@ -1,0 +1,1 @@
+1-Create a server BUN "bun init" and run it with "bun run index.ts" and make it runing with "bun --watch index.ts"
