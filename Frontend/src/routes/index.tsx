@@ -25,7 +25,7 @@ async function getTotalSpent(){
     throw new Error('Server Error')
   }
     const data = await res.json()
-    return data
+    return data;
 }
 
 
