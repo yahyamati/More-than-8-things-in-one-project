@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import { logger } from 'hono/logger'
+import { serveStatic } from 'hono/bun'
 import { expensesRoute } from './routes/expenses'
 
 // Create a new Hono app
@@ -7,17 +8,10 @@ const app = new Hono()
 // Log all requests
 app.use('*',logger())
 
-// Define a test route
-app.get('/test', c => {
-    return c.json({ message: 'test' })
-})
-
-// Define a 404 route
-app.get('/notfound' , (c)=>{
-    return c.notFound()
-})
-
 // Define the expenses route
 app.route('/api/expenses', expensesRoute)
+
+app.use('/static/*', serveStatic({ root: './frontend/dist' }))
+app.get('*', serveStatic({ path: './frontend/dist/index.html' }))
 
 export default app // for Cloudflare Workers or Bun

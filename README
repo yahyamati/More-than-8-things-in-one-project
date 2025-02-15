@@ -2,3 +2,4 @@
 2-install in Bun the Hono freamwork and create a server and use the Logger Middleware, i can easily monitor the flow of requests and responses in my Hono application and quickly identify any issues or performance bottlenecks.
 3-create the Routes and add the Zod ("TypeScript-first schema validation with static type inference ") the run time check
 4-create react app and add Tailwind
+5-call the api from backend server for a test
