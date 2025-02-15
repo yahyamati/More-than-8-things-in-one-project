@@ -11,7 +11,7 @@ app.use('*',logger())
 // Define the expenses route
 app.route('/api/expenses', expensesRoute)
 
-app.use('/static/*', serveStatic({ root: './frontend/dist' }))
-app.get('*', serveStatic({ path: './frontend/dist/index.html' }))
+app.use('*', serveStatic({ root: '../Frontend/dist' }))
+app.get('*', serveStatic({ path: '../Frontend/dist/index.html' }))
 
 export default app // for Cloudflare Workers or Bun
