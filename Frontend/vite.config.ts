@@ -13,7 +13,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api': 'https://app-exprenses-demo.onrender.com',
-      changeOrigin: true,
+     
     }
   }
 })
