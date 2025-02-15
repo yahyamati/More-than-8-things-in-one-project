@@ -21,7 +21,7 @@ type Expense = z.infer<typeof expenseSchema>
 
 // Fake expenses data for testing
 const fakeExpenses: Expense[] = [
-    { id: 1, title: 'Food', amount: 100 },
+    { id: 1, title: 'Food', amount: 500 },
     { id: 2, title: 'Rent', amount: 1000 },
     { id: 3, title: 'Insurance', amount: 200 },
 ]

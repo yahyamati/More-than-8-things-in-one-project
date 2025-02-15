@@ -7,6 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "./components/ui/card"
+import {api} from "./lib/api.ts"
+
 function App() {
 
   const [totalSpent, setTotalSpent] = useState(0)
@@ -14,7 +16,7 @@ function App() {
 useEffect(()=>{
   async function fetchTotalSpent(){
 
- const res = await fetch('https://app-exprenses-demo.onrender.com/api/expenses/total-spent')
+    const res = await api.expenses["total-spent"].$get()
  const data = await res.json()
 
 setTotalSpent(data.total)
@@ -22,6 +24,7 @@ setTotalSpent(data.total)
   fetchTotalSpent()
 
 },[])
+
 
 
   return (

@@ -17,6 +17,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "frontend": "file:",
+    "hono": "^4.7.1",
     "lucide-react": "^0.475.0",
     "path": "^0.12.7",
     "react": "^19.0.0",

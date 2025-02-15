@@ -3,3 +3,6 @@
 3-create the Routes and add the Zod ("TypeScript-first schema validation with static type inference ") the run time check
 4-create react app and add Tailwind
 5-call the api from backend server for a test
+6-host the app
+7-add the HONO RPC feature allows sharing of the API specifications between the server and the client.
+You can export the types of input type specified by the Validator and the output type emitted by json(). And Hono Client will be able to import it.

@@ -11,15 +11,16 @@ app.use('*',logger())
 app.use('/api/*', cors())
 
 app.use(cors({
-    origin: "https://expenses-app-omv4.onrender.com", // Replace with your actual frontend URL
+    origin: "*",
     allowMethods: ['POST', 'GET', 'OPTIONS'],
     allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests'],
   }));
 
-// Define the expenses route
-app.route('/api/expenses', expensesRoute)
+// Define the expenses route 
+const apiRoutes = app.basePath("/api").route('/expenses', expensesRoute)
 
 // app.use('*', serveStatic({ root: './dist' }))
 // app.get('*', serveStatic({ path: './dist/index.html' }))
 
 export default app // for Cloudflare Workers or Bun
+export type ApiRoutes = typeof apiRoutes
