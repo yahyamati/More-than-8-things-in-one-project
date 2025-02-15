@@ -10,10 +10,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  server:{
-    proxy:{
-      '/api': 'https://app-exprenses-demo.onrender.com',
+  // server:{
+  //   proxy:{
+  //     '/api': 'https://app-exprenses-demo.onrender.com',
      
-    }
-  }
+  //   }
+  // }
 })

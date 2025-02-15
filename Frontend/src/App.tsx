@@ -11,28 +11,17 @@ function App() {
 
   const [totalSpent, setTotalSpent] = useState(0)
 
-useEffect(() => {
-  async function fetchTotalSpent() {
-    try {
-      const res = await fetch("/api/expenses/total-spent");
+useEffect(()=>{
+  async function fetchTotalSpent(){
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-      }
+ const res = await fetch('https://app-exprenses-demo.onrender.com/api/expenses/total-spent')
+ const data = await res.json()
 
-      const text = await res.text(); // Read response as text
-      console.log("Raw Response:", text); // Debugging
-
-      const data = JSON.parse(text); // Parse manually
-
-      setTotalSpent(data.total);
-    } catch (error) {
-      console.error("Error fetching total spent:", error);
-    }
+setTotalSpent(data.total)
   }
+  fetchTotalSpent()
 
-  fetchTotalSpent();
-}, []);
+},[])
 
 
   return (
