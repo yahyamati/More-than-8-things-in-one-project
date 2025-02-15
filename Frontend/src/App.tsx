@@ -11,17 +11,28 @@ function App() {
 
   const [totalSpent, setTotalSpent] = useState(0)
 
-useEffect(()=>{
-  async function fetchTotalSpent(){
+useEffect(() => {
+  async function fetchTotalSpent() {
+    try {
+      const res = await fetch("/api/expenses/total-spent");
 
- const res = await fetch('/api/expenses/total-spent')
- const data = await res.json()
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
 
-setTotalSpent(data.total)
+      const text = await res.text(); // Read response as text
+      console.log("Raw Response:", text); // Debugging
+
+      const data = JSON.parse(text); // Parse manually
+
+      setTotalSpent(data.total);
+    } catch (error) {
+      console.error("Error fetching total spent:", error);
+    }
   }
-  fetchTotalSpent()
 
-},[])
+  fetchTotalSpent();
+}, []);
 
 
   return (
