@@ -15,6 +15,7 @@
   "dependencies": {
     "@hono/zod-validator": "^0.4.2",
     "backend": "file:",
+    "cors": "^2.8.5",
     "hono": "^4.7.1",
     "zod": "^3.24.2"
   }

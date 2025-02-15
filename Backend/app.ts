@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 // import { serveStatic } from 'hono/bun'
 import { expensesRoute } from './routes/expenses'
@@ -7,6 +8,13 @@ import { expensesRoute } from './routes/expenses'
 const app = new Hono()
 // Log all requests
 app.use('*',logger())
+app.use('/api/*', cors())
+
+app.use(cors({
+    origin: "https://expenses-app-omv4.onrender.com", // Replace with your actual frontend URL
+    allowMethods: ['POST', 'GET', 'OPTIONS'],
+    allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests'],
+  }));
 
 // Define the expenses route
 app.route('/api/expenses', expensesRoute)
