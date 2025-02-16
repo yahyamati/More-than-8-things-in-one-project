@@ -10,3 +10,4 @@ You can export the types of input type specified by the Validator and the output
 9-use TanStack Router ("A simple, flexible, and powerful router for React")
 10-create Expenses && Create-Expenses Pages
 11-use TanStack Form ("A simple, flexible, and powerful form library for React")
+12-use Query Options to share the data between the pages ("change the fonction place")
