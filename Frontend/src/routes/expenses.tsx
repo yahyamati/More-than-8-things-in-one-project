@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table"
-import { api,getAllExpensesQueryOptions } from "../lib/api.ts"
+import { getAllExpensesQueryOptions } from "../lib/api.ts"
 
 
 

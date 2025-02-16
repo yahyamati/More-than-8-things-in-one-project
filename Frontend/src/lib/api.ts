@@ -2,7 +2,7 @@ import { hc } from 'hono/client'
 import {type ApiRoutes} from '../../../Backend/app.ts'
 import { queryOptions } from '@tanstack/react-query'
 
-const client = hc<ApiRoutes>('https://app-exprenses-demo.onrender.com')
+const client = hc<ApiRoutes>('http://localhost:3000')
 
 
 export const api = client.api
@@ -25,4 +25,4 @@ export async function getAllExpenses() {
 
 
   
-  
+     
