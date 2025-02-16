@@ -7,7 +7,7 @@ import { Button } from "../components/ui/button";
 import { useForm } from "@tanstack/react-form";
 import {api} from "../lib/api.ts"
 
-export const Route = createFileRoute('/expenses' as never)({
+export const Route = createFileRoute('/create-expenses' as never)({
   component: CreateExpenses,
 })
 

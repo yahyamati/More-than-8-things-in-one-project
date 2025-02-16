@@ -14,9 +14,10 @@ app.use('*',logger())
 app.use('/api/*', cors())
 
 app.use(cors({
-    origin: "*",
+    origin: "http://localhost:5173",
     allowMethods: ['POST', 'GET', 'OPTIONS'],
     allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests'],
+    credentials: true,
   }));
 
 // Define the expenses route 

@@ -18,8 +18,11 @@ function Navbar(){
     <Link to="/expenses" className="[&.active]:font-bold">
       expenses
     </Link>
-    <Link to="/create-Expenses" className="[&.active]:font-bold">
+    <Link to="/create-expenses" className="[&.active]:font-bold">
     create
+    </Link>
+    <Link to="/profile" className="[&.active]:font-bold">
+    Profile
     </Link>
   </div>
   )

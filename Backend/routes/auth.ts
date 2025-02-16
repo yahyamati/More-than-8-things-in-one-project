@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import {kindeClient,sessionManager} from '../kinde'
-import {getUser} from '../kinde'
+import { getUser } from '../kinde'
 
 
 export const authRoute = new Hono()
@@ -28,9 +28,7 @@ export const authRoute = new Hono()
   })
 
   // This route is used to check if the user is authenticated
-  .get("/me",getUser, async (c) => {
-
+  .get("/me", getUser, async (c) => {
     const user = c.var.user
-    return c.json({user})
-     
-});
+    return c.json({ user });
+  });
