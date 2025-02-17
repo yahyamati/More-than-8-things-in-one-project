@@ -5,8 +5,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../components/ui/card"
-import {api} from "../lib/api.ts"
+} from "../../components/ui/card.tsx"
+import {api} from "../../lib/api.ts"
 import {
   useQuery,
 } from '@tanstack/react-query'

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { Skeleton } from "../components/ui/skeleton"
+import { Skeleton } from "../../components/ui/skeleton.tsx"
 import { useQuery } from "@tanstack/react-query"
 import {
   Table,
@@ -9,8 +9,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../components/ui/table"
-import { getAllExpensesQueryOptions } from "../lib/api.ts"
+} from "../../components/ui/table.tsx"
+import { getAllExpensesQueryOptions } from "../../lib/api.ts"
 
 
 

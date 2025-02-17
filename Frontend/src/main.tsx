@@ -7,7 +7,13 @@ import {
 } from '@tanstack/react-query'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
-const router = createRouter({ routeTree })
+
+
+// Create a client
+const queryClient = new QueryClient()
+
+
+const router = createRouter({ routeTree , context: { queryClient } })
 
 declare module '@tanstack/react-router' {
   interface Register {
@@ -15,8 +21,7 @@ declare module '@tanstack/react-router' {
   }
 }
 
-// Create a client
-const queryClient = new QueryClient()
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -1,11 +1,11 @@
 import { createFileRoute , useNavigate  } from '@tanstack/react-router'
-import { Input } from "../components/ui/input"
-import { Label } from "../components/ui/label";
-import { Button } from "../components/ui/button";
+import { Input } from "../../components/ui/input.tsx"
+import { Label } from "../../components/ui/label.tsx";
+import { Button } from "../../components/ui/button.tsx";
 // import { Calendar } from "../components/ui/calendar";
 // import { toast } from "sonner"
 import { useForm } from "@tanstack/react-form";
-import {api} from "../lib/api.ts"
+import {api} from "../../lib/api.ts"
 
 export const Route = createFileRoute('/create-expenses' as never)({
   component: CreateExpenses,
