@@ -1,6 +1,7 @@
 import {Hono} from 'hono'
 import { zValidator } from '@hono/zod-validator'
 import {z} from 'zod'
+import { getUser } from '../kinde'
 
 
 
@@ -32,14 +33,15 @@ export const expensesRoute = new Hono()
 
 
 // Define the route handlers for the expenses route 
-.get('/', (c) => {
+.get('/',getUser, (c) => {
     c.status(200)
     return c.json({ expenses: fakeExpenses })
 })
 
 
 // Validate the POST request body using the Zod schema
-.post('/', zValidator("json" , createPostSchema) , async (c) => {
+.post('/',getUser, zValidator("json" , createPostSchema) , async (c) => {
+    // const user = c.var.user
     const data = await c.req.valid("json")
     const expense = createPostSchema.parse(data)
     fakeExpenses.push({...expense , id: fakeExpenses.length + 1})
@@ -48,14 +50,14 @@ export const expensesRoute = new Hono()
 })
 
 
-.get('/total-spent', (c)=>{
+.get('/total-spent',getUser, (c)=>{
 
     const total = fakeExpenses.reduce((acc, expense) => acc + expense.amount, 0)
     return c.json({total })
 })
 
 
-.get('/:id{[0-9]+}', async (c) => {
+.get('/:id{[0-9]+}',getUser, async (c) => {
     const id = Number.parseInt(c.req.param('id'))
     const expense = fakeExpenses.find(expense => expense.id === id)
     if (!expense) {
@@ -67,7 +69,7 @@ export const expensesRoute = new Hono()
 
 
 
-.delete('/:id{[0-9]+}', async (c) => {
+.delete('/:id{[0-9]+}',getUser, async (c) => {
     const id = Number.parseInt(c.req.param('id'))
     const expense = fakeExpenses.find(expense => expense.id === id)
     if (!expense) {

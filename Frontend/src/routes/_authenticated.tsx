@@ -1,5 +1,6 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router"
+import { createFileRoute, Link, Outlet } from "@tanstack/react-router"
 import {  userQueryOption } from "../lib/api"
+import { Button } from "../components/ui/button"
 
 
 
@@ -7,11 +8,15 @@ import {  userQueryOption } from "../lib/api"
 
 
 const Login = () => {
- 
   return (
-    <div>
-      <p>You need to log in to continue.</p>
-      <a href="http://localhost:3000/api/login">Logout</a>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+        <h1 className="text-3xl font-bold text-center text-gray-800">Login</h1>
+        <p className="text-center text-gray-600">You need to log in to continue.</p>
+        <Button asChild className="w-full">
+        <a href="http://localhost:3000/api/login">Login</a>
+        </Button>
+      </div>
     </div>
   )
 }

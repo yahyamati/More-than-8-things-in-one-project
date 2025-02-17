@@ -14,7 +14,7 @@ app.use('*',logger())
 app.use('/api/*', cors())
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin:["http://localhost:3000", "http://localhost:5173"], 
     allowMethods: ['POST', 'GET', 'OPTIONS'],
     allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests'],
     credentials: true,
