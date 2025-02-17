@@ -8,12 +8,13 @@ export const authRoute = new Hono()
 
   .get("/login", async (c) => {
     const loginUrl = await kindeClient.login(sessionManager(c));
-    return c.json({ url: loginUrl.toString() });
+    // return c.json({ url: loginUrl.toString() });
+    return c.redirect(loginUrl.toString());
   })
   .get("/register", async (c) => {
     const registerUrl = await kindeClient.register(sessionManager(c));
-    // return c.redirect(registerUrl.toString());
-    return c.json({ url: registerUrl.toString() });
+    return c.redirect(registerUrl.toString());
+    // return c.json({ url: registerUrl.toString() });
   })
 
   .get("/callback", async (c) => {
@@ -25,8 +26,8 @@ export const authRoute = new Hono()
 
   .get("/logout", async (c) => {
     const logoutUrl = await kindeClient.logout(sessionManager(c));
-    // return c.redirect(logoutUrl.toString());
-    return c.json({ url: logoutUrl.toString() });
+    return c.redirect(logoutUrl.toString());
+    // return c.json({ url: logoutUrl.toString() });
   })
 
   // This route is used to check if the user is authenticated

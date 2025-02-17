@@ -1,28 +1,17 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router"
-import { GetLogin, userQueryOption } from "../lib/api"
-import { useQuery, useQueryClient } from "@tanstack/react-query"
-import { Button } from "../components/ui/button"
-import { useState } from "react"
+import {  userQueryOption } from "../lib/api"
+
 
 
 
 
 
 const Login = () => {
-  const queryClient = useQueryClient()
-  const handleLogin = async () => {
-    try {
-      const data = await queryClient.fetchQuery(GetLogin) 
-      window.location.href = data.url 
-    } catch (error) {
-      console.error("Error fetching login URL:", error)
-    }
-  }
-
+ 
   return (
     <div>
       <p>You need to log in to continue.</p>
-      <Button onClick={handleLogin}>Login</Button>
+      <a href="http://localhost:3000/api/login">Logout</a>
     </div>
   )
 }

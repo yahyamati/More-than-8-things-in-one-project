@@ -6,12 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "../../components/ui/card.tsx"
-import {GetLogout, userQueryOption} from "../../lib/api.ts"
+import { userQueryOption} from "../../lib/api.ts"
 import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query'
-import { Button } from '../../components/ui/button.tsx'
 
 
 
@@ -21,30 +20,11 @@ export const Route = createFileRoute('/_authenticated/profile')({
 
 
 
-
-
-
 function Profile() {
-  const queryClient = useQueryClient()
   const { isPending, error, data } = useQuery(userQueryOption)
 
   if (error) return 'An error has occurred: ' + error.message
 
-  const handleLogout = async () => { 
-  
-    try {
-      const data = await queryClient.fetchQuery(GetLogout) 
-      if (data?.url) {
-        window.location.href = data.url // ✅ Redirection après déconnexion
-        console.log("Déconnexion réussie", data.url)
-      } else {
-        console.error("URL de déconnexion introuvable")
-      }
-    } catch (error) {
-      console.error("Erreur lors de la déconnexion:", error)
-    }
-  }
- 
 
   return (
     <>   
@@ -54,7 +34,7 @@ function Profile() {
     </CardHeader>
     <CardContent>{isPending ? "Loading..." :data.user.family_name} </CardContent>
     <CardContent>{isPending ? "Loading..." :data.user.given_name} </CardContent>
-    <Button onClick={handleLogout}>Se Déconnecter</Button>
+    <a href="http://localhost:3000/api/logout">Logout</a>
   </Card>
    
   </>

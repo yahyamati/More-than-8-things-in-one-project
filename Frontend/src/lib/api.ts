@@ -31,19 +31,19 @@ export async function getAllExpenses() {
   });
   
 
-  export async function Login() {
-    const res = await api.login.$get()
-    if (!res.ok) {
-      throw new Error("Server Error")
-    }
-    const data = await res.json()
-    return data
-  }
+  // export async function Login() {
+  //   const res = await api.login.$get()
+  //   if (!res.ok) {
+  //     throw new Error("Server Error")
+  //   }
+  //   const data = await res.json()
+  //   return data
+  // }
 
-  export const GetLogin = queryOptions({
-    queryKey: ["get-Login"],
-    queryFn: Login,
-  });
+  // export const GetLogin = queryOptions({
+  //   queryKey: ["get-Login"],
+  //   queryFn: Login,
+  // });
   
 
 
@@ -68,16 +68,16 @@ async function getCurrentUser(){
      
 
 
-   export async function Logout() {
-    const res = await api.logout.$get()
-    if (!res.ok) {
-      throw new Error("Server Error")
-    }
-    const data = await res.json()
-    return data
-  }
+  //  export async function Logout() {
+  //   const res = await api.logout.$get()
+  //   if (!res.ok) {
+  //     throw new Error("Server Error")
+  //   }
+  //   const data = await res.json()
+  //   return data
+  // }
 
-  export const GetLogout = queryOptions({
-    queryKey: ["get-logout"],
-    queryFn: Login,
-  });
+  // export const GetLogout = queryOptions({
+  //   queryKey: ["get-logout"],
+  //   queryFn: Login,
+  // });
